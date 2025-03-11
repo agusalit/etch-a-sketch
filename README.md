@@ -5,18 +5,6 @@
 This is a simple Etch A Sketch project built as part of the [The Odin Project](https://www.theodinproject.com/lessons/foundations-etch-a-sketch).  
 It allows users to draw on a dynamically generated grid using mouse interactions.
 
-## FlowChart
-```mermaid
-graph TD;
-UserInput[User enters grid size (1-64)] -->|Clicks Set Grid| ValidateInput{Valid Input?};
-ValidateInput -- Yes --> GenerateGrid[Generate grid dynamically];
-ValidateInput -- No --> ErrorMessage[Display Error Message];
-ErrorMessage --> UserInput;
-GenerateGrid --> UserInteraction[User interacts with grid];
-UserInteraction -->|Left Click & Drag| Draw[Change color to black];
-UserInteraction -->|Right Click & Drag| Erase[Change color to white];
-```
-
 ## Features
 - Dynamic grid size selection (1x1 to 64x64).
 - Left-click and drag to draw (currently only supports black color).
