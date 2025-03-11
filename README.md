@@ -8,12 +8,14 @@ It allows users to draw on a dynamically generated grid using mouse interactions
 ## FlowChart
 ```mermaid
 graph TD;
-    UserInput[User enters grid size (1-64)] -->|Clicks Set Grid| GenerateGrid[Generate grid dynamically];
-    GenerateGrid --> UserInteraction[User interacts with grid];
-    UserInteraction -->|Left Click & Drag| Draw[Change color to black];
-    UserInteraction -->|Right Click & Drag| Erase[Change color to white];
+UserInput[User enters grid size (1-64)] -->|Clicks Set Grid| ValidateInput{Valid Input?};
+ValidateInput -- Yes --> GenerateGrid[Generate grid dynamically];
+ValidateInput -- No --> ErrorMessage[Display Error Message];
+ErrorMessage --> UserInput;
+GenerateGrid --> UserInteraction[User interacts with grid];
+UserInteraction -->|Left Click & Drag| Draw[Change color to black];
+UserInteraction -->|Right Click & Drag| Erase[Change color to white];
 ```
-
 
 ## Features
 - Dynamic grid size selection (1x1 to 64x64).
